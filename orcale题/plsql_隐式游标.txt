@@ -1,0 +1,13 @@
+/*
+ 隐式游标: 更新指定员工 salary(涨工资 10)，如果该员工没有找到，则打印”查无此人” 信息
+*/
+ declare
+     V_id number(20) :=&V_id;
+
+ begin
+
+       update employees set salary=salary+10 where employee_id = V_id;
+       if(sql%notfound)then dbms_output.put_line('查无此人');
+       end if;
+
+ end;

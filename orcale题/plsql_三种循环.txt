@@ -1,0 +1,52 @@
+/*
+   使用循环语句打印 1 - 100.（三种方式）
+*/
+--第一种方法  loop 执行语句; exit when 条件 end loop 结束循环体
+/*declare
+   V_num number(20) := 1;
+begin
+  loop
+    dbms_output.put_line(V_num);
+  exit when V_num=100;
+    V_num := V_num+1;
+  end loop;
+end;*/
+--第二种方法 while 条件 loop 执行语句; end loop;
+/*declare
+  V_num number(20) := 1;
+begin
+  while V_num<=100
+    loop
+      dbms_output.put_line(V_num);
+      V_num := V_num +1;
+    end loop;
+
+end;*/
+--for 变量 in 下限 .. 上限 loop 执行语句; end loop;
+--数字式循环 （数字自增 从下限开始每次加一 到 上限停止）
+/*declare
+
+begin
+  for i in 1 .. 100 loop
+      dbms_output.put_line(i);
+    end loop;
+
+end;*/
+--数字式循环 （数字自减 从上限开始每次减一 到 下限停止）
+declare
+
+begin
+  for i in reverse 1 .. 100 loop
+      dbms_output.put_line(i);
+    end loop;
+
+end;
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+/*
+  利用游标, 调整公司中员工的工资:
+
+    工资范围       调整基数
+    0 - 5000       5%
+    5000 - 10000   3%
+    10000 - 15000  2%
+    15000 -        1%
+*/
+ declare
+ --定义游标
+   cursor emp_cur(dept_id number,sal number) is
+          select salary+1000 sal,employee_id id from employees
+          where department_id = dept_id and salary>sal;
+    --定义基数变量
+    temp number(4,2);
+ begin
+   --处理游标的循环操作
+   for c in emp_cur(sal=>4000,dept_id => 80)
+     loop
+       if c.sal<=5000
+         then temp:=0.05;
+       elsif c.sal<=10000
+         then temp:=0.03;
+       elsif c.sal<=15000
+         then temp:=0.02;
+       else temp:=0.01;
+       end if;
+       dbms_output.put_line(c.sal || ': ' || c.id || ', ' || temp);
+       update employees set salary=salary*(1+temp) where employee_id = c.id;
+     end loop;
+
+ end;

@@ -1,0 +1,2 @@
+--编写一个触发器, 在对 my_emp 记录进行删除的时候, 在 my_emp_bak 表中备份对应的记录
+delete from emp where id=203

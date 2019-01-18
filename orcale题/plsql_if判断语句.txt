@@ -1,0 +1,31 @@
+/*
+  要求: 查询出 150号 员工的工资, 若其工资大于或等于 10000 则打印 'salary >= 10000';
+  若在 5000 到 10000 之间, 则打印 '5000<= salary < 10000'; 否则打印 'salary < 5000'
+*/
+declare
+   V_salary employees.salary%type;
+   V_str varchar2(20);
+
+begin
+   select salary into V_salary from employees where employee_id = 150;
+
+-- if...then...;elsif...then...;else...;end if判断语句
+ --方法一
+   --if V_salary>=10000
+     --then dbms_output.put_line('salary >= 10000');
+   --elsif V_salary>=5000
+     --then dbms_output.put_line('5000<= salary < 10000');
+   --else
+      --dbms_output.put_line('salary < 5000');
+   --end if;
+ --方法二
+   if V_salary>=10000
+      then V_str := 'salary >= 10000';
+   elsif V_salary>=5000
+      then V_str := 'salary >= 10000';
+   else
+      V_str := 'salary < 5000';
+   end if;
+     dbms_output.put_line(V_str);
+
+end;

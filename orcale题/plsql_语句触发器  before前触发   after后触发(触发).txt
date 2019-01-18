@@ -1,0 +1,3 @@
+--语句触发器  before前触发   after后触发
+--执行多条数据时begin只会走一次
+update employees set last_name ='xx' where employee_id=200

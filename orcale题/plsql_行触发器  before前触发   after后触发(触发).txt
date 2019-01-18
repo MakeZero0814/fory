@@ -1,0 +1,3 @@
+--行触发器  before前触发   after后触发
+--执行多条数据时begin中的内容会走多次
+update employees set last_name ='xx' where employee_id=200

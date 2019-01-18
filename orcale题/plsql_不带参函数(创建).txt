@@ -1,0 +1,8 @@
+--不带参函数
+create or replace function f_s
+      return number
+      is
+       V_a number(20);
+begin
+    V_a := 5;
+end;

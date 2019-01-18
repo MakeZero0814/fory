@@ -1,0 +1,34 @@
+--创建包主体
+create or replace package body P_na
+ is
+-------------------------------------
+ function f_one(
+   V_emp employees.employee_id%type,
+   V_num out number)
+   return number
+   is
+ begin
+   update employees set last_name ='张三' where employee_id = V_emp;
+   V_num := 12;
+   return 2;
+ end f_one;
+-------------------------------------
+ function f_two(
+   V_depid departments.department_id%type)
+   return varchar2
+   is
+   V_name varchar2(20);
+ begin
+   select last_name into V_name from employees where employee_id=121;
+   return V_name;
+ end f_two;
+-------------------------------------
+ procedure P_three(
+   V_locid locations.location_id%type)
+ is
+ begin
+   update employees set last_name ='李四' where employee_id = 200;
+ end P_three;
+-------------------------------------
+end P_na;
+

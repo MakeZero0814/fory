@@ -1,0 +1,10 @@
+--语句触发器  before前触发   after后触发
+--执行多条数据时begin只会走一次
+create or replace trigger tr_emp
+after
+update on employees
+
+begin
+  dbms_output.put_line('holle word');
+
+end;

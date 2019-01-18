@@ -1,0 +1,9 @@
+--´ø²Îº¯Êı
+declare
+   V_a number :=50;
+   V_b number(20);
+   V_c number(20);
+begin
+    V_b := f_s(V_a,V_c);
+    dbms_output.put_line(V_b || ',' ||V_c);
+end;

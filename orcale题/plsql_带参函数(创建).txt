@@ -1,0 +1,11 @@
+--´ø²Îº¯Êı
+create or replace function f_s
+(V_dep employees.department_id%type,
+ V_count out number)
+      return number
+      is
+       V_a number(20);
+begin
+    select sum(salary),count(*) into V_a,V_count from employees where department_id = V_dep;
+    return V_a;
+end;

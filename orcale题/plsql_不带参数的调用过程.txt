@@ -1,0 +1,6 @@
+--不带参数的调用过程
+declare
+ V_name varchar2(20);
+begin
+  p_s();
+end;

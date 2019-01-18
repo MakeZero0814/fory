@@ -1,0 +1,22 @@
+/*
+  打印出 80 部门的所有的员工的工资:salary: xxx
+*/
+declare
+ -- 定义游标
+   cursor sal_cur is select salary from employees where department_id=80;
+   V_salary employees.salary%type;
+begin
+ --打开游标
+  open sal_cur;
+ --提取游标数据
+  fetch sal_cur into V_salary;
+  while sal_cur%found
+    loop
+      dbms_output.put_line('80 部门的所有的员工的工资为'||V_salary);
+      fetch sal_cur into V_salary;
+  end loop;
+  dbms_output.put_line(sal_cur%rowcount);
+ --关闭游标
+    close sal_cur;
+
+end;

@@ -1,0 +1,11 @@
+--带参创建过程
+create or replace procedure P_s(
+   V_dep employees.employee_id%type,
+   V_name out varchar2)
+  is
+
+begin
+  select last_name into V_name from employees where employee_id=V_dep;
+  dbms_output.put_line(V_name);
+
+end;

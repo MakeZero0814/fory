@@ -1,0 +1,11 @@
+--行触发器  before前触发   after后触发
+--执行多条数据时begin中的内容会多次执行
+create or replace trigger tr_emp1
+before
+update on employees
+for each row
+
+begin
+  dbms_output.put_line(:old.salary ||','|| :new.salary);
+
+end;

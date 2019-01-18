@@ -1,0 +1,17 @@
+/*
+  打印出 manager_id 为 100 的员工的 last_name, email, salary 信息(使用游标 , for)
+*/
+declare
+ -- 定义游标
+   cursor sal_cur is select last_name, email, salary from employees where manager_id=100;
+
+begin
+
+ for V_i in sal_cur
+   loop
+     dbms_output.put_line(V_i.last_name || ',' || V_i.email || ',' || V_i.salary);
+   end loop;
+
+
+
+end;

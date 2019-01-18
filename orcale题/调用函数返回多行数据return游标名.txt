@@ -1,0 +1,15 @@
+--调用函数返回多行数据 return 游标名
+declare
+  V_su number(20);
+  C_s sys_refcursor;
+
+begin
+  C_s := f_s();
+  loop
+    fetch C_s into V_su ;
+    dbms_output.put_line(V_su);
+  exit when C_s %notfound;
+
+  end loop;
+
+end;

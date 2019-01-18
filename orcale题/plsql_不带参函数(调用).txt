@@ -1,0 +1,7 @@
+--不带参函数
+declare
+   V_c number(20);
+begin
+    V_c := f_s();
+    dbms_output.put_line(V_c);
+end;

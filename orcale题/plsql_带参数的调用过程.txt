@@ -1,0 +1,8 @@
+--带参调用过程
+declare
+ V_dep number(20) := &depid;
+ V_name varchar2(20);
+begin
+  P_s(V_dep,V_name);
+
+end;

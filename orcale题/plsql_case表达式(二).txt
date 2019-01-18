@@ -1,0 +1,23 @@
+/*
+  查询出 122 号员工的 JOB_ID, 若其值为 'IT_PROG', 则打印 'GRADE: A';
+					    'AC_MGT', 打印 'GRADE B',
+					    'AC_ACCOUNT', 打印 'GRADE C';
+		          否则打印 'GRADE D'
+*/
+declare
+   V_job_id employees.job_id%type;
+   V_str varchar(20);
+
+begin
+   select job_id into V_job_id from employees where employee_id = 122;
+-- case...when...then...else...end;表达式
+  V_str := case V_job_id
+               when 'IT_PROG' then 'GRADE: A'
+               when 'AC_MGT' then 'GRADE B'
+               when 'AC_ACCOUNT' then 'GRADE C'
+           else 'GRADE D'
+           end;
+
+     dbms_output.put_line(V_str);
+
+end;

@@ -1,0 +1,10 @@
+--创建函数返回多行数据   return 游标名
+create or replace function f_s
+          return sys_refcursor
+          is C_s sys_refcursor;
+
+begin
+  open C_s for select salary from employees;
+  return C_s;
+
+end;

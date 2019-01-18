@@ -1,0 +1,17 @@
+--µ÷ÓÃ°ü
+declare
+  V_emp number(10) :=125;
+  V_num number(10);
+  V_n number(10);
+  V_name varchar2(10);
+begin
+  V_num :=P_na.f_one(V_emp,V_n);
+  dbms_output.put_line(V_num||','||V_n);
+
+  V_name :=P_na.f_two(V_emp);
+  dbms_output.put_line(V_name);
+
+  P_na.P_three(V_emp);
+
+
+end;

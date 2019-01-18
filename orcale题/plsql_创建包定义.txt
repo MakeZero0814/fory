@@ -1,0 +1,16 @@
+--创建包定义
+create or replace package P_na
+ is
+ V_s number(10);
+ C_ty employees%rowtype;
+ function f_one(
+   V_emp employees.employee_id%type,
+   V_num out number)
+   return number;
+ function f_two(
+   V_depid departments.department_id%type)
+   return varchar2;
+ procedure P_three(
+   V_locid locations.location_id%type);
+end P_na;
+

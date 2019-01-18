@@ -1,0 +1,18 @@
+--用户自定义异常
+/*
+  更新指定员工工资，增加100;若该员工不存在则抛出用户自定义异常：no_result
+*/
+declare
+   V_id employees.employee_id%type :=&id;
+   no_result exception;
+begin
+  update employees set salary=salary+100 where employee_id=V_id;
+  if(sql%notfound)
+    then raise no_result;
+  end if;
+exception
+  when no_result then dbms_output.put_line('该员工不存在');
+  when others then dbms_output.put_line('其他错误');
+
+
+end;

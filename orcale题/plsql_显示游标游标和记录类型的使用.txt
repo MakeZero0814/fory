@@ -1,0 +1,27 @@
+/*
+  打印出 manager_id 为 100 的员工的 last_name, email, salary 信息(使用游标, 记录类型)
+*/
+declare
+ -- 定义游标
+   cursor sal_cur is select last_name, email, salary from employees where manager_id=100;
+   type emp_re is record(
+       V_name employees.last_name%type,
+       V_email employees.email%type,
+       V_salary employees.salary%type
+   );
+   V_emp_rec emp_re;
+begin
+ --打开游标
+  open sal_cur;
+ --提取游标数据
+  fetch sal_cur into V_emp_rec;
+  while sal_cur%found
+    loop
+      dbms_output.put_line(V_emp_rec.V_name || ',' || V_emp_rec.V_email || ','|| V_emp_rec.V_salary);
+      fetch sal_cur into V_emp_rec;
+  end loop;
+  dbms_output.put_line(sal_cur%rowcount);
+ --关闭游标
+    close sal_cur;
+
+end;

@@ -1,0 +1,19 @@
+declare
+  V_sal number(20);
+  V_salary number(20);
+  V_dep number(20) :=50;
+  V_name varchar2(20);
+  --cursor em_cur is select salary from employees where department_id=V_dep;
+begin
+
+  --open em_cur;
+
+  --fetch em_cur into V_sal ;
+  -- while em_cur %found
+  --  loop
+      V_salary :=f_s(V_dep,V_name);
+   -- fetch em_cur into V_sal;
+   -- end loop;
+    dbms_output.put_line(V_salary||','|| V_name);
+ --close em_cur;
+end;

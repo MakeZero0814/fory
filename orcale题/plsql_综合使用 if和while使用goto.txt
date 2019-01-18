@@ -1,0 +1,43 @@
+/*
+   综合使用 if, while 语句, 打印 1 - 100 之间的所有素数
+   (素数: 有且仅用两个正约数的整数, 2, 3, 5, 7, 11, 13, ...).
+   标记值, 若为 1 则是素数, 否则不是
+   使用goto
+*/
+declare
+  V_i number(20) :=2;
+  V_j number(20) :=2;
+  V_sun number(20) :=1;
+
+begin
+  -- 使用goto
+  while (V_i<=100)
+    loop
+      while  (V_j<=sqrt(v_i))--sqart()开平方
+        loop
+          if (mod(V_i,V_j)=0)--mod(m,n) m除以n 结果的余数
+            then V_sun :=0;
+            goto G_label;
+          end if;
+          V_j := v_j+1;
+      end loop;
+      <<G_label>>
+      if (V_sun = 1)
+        then dbms_output.put_line(V_i);
+      end if;
+      V_sun :=1;
+      V_j := 2;
+      V_i := V_i+1;
+
+    end loop;
+
+end;
+
+
+
+
+
+
+
+
+

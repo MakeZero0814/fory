@@ -1,0 +1,8 @@
+--编写一个触发器, 在对 my_emp 记录进行删除的时候, 在 my_emp_bak 表中备份对应的记录
+create or replace trigger tr_my_emp
+after
+delete on emp
+for each row
+begin
+  insert into emp_bak values(:old.id,:old.name,:old.sal);
+end;

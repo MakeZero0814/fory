@@ -1,0 +1,27 @@
+/*
+  打印1——100的自然数，当打印到50时，跳出循环，输出“打印结束”
+*/
+declare
+
+begin
+ --使用goto 跳出循环
+ /*for i in 1 .. 100
+   loop
+    if(i=50)
+    then goto G_label;
+    end if;
+   end loop;
+   <<G_label>>
+   dbms_output.put_line('打印结束');*/
+ --使用if 跳出循环
+ for i in 1 .. 100
+   loop
+    if(i=50)
+    then dbms_output.put_line('打印结束');
+    exit;
+    end if;
+   end loop;
+
+
+
+end;

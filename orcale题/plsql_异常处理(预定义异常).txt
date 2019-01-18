@@ -1,0 +1,24 @@
+--预定义异常
+/*
+  更新指定员工工资 如工资小于3000 则加100；
+  对no_data_found 异常，too_many_rows进行异常处理
+*/
+declare
+   V_id employees.employee_id%type :=&id;
+   V_sal employees.salary%type;
+
+begin
+  select salary into V_sal from employees where employee_id=V_id for update;
+  if V_sal<=3000
+    then update employees set salary=salary+1000 where employee_id = V_id;
+    dbms_output.put_line('编码为' || V_id || '员工工资已更新');
+  else
+    dbms_output.put_line('编码为' || V_id || '员工工资不需要更新');
+  end if;
+exception
+  when no_data_found then dbms_output.put_line('数据库中没有该编码');
+  when too_many_rows then dbms_output.put_line('返回多行请用游标');
+  when others then dbms_output.put_line('其他错误');
+
+
+end;
